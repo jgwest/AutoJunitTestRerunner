@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Auto Junit Test Rerunner"
+            id="AutoJunitTestRerunner.commands.category">
+      </category>
+      <command
+            name="Auto Junit Test Rerunner"
+            categoryId="AutoJunitTestRerunner.commands.category"
+            id="AutoJunitTestRerunner.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            commandId="AutoJunitTestRerunner.commands.sampleCommand"
+            class="com.autojunittestrerunner.JunitActionHandler">
+      </handler>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.menus">
+
+      <menuContribution
+            locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+         <toolbar
+               id="AutoJunitTestRerunner.toolbars.sampleToolbar">
+            <command
+                  commandId="AutoJunitTestRerunner.commands.sampleCommand"
+                  icon="icons/sample.png"
+                  tooltip="Auto-JUnit Test Rerunner"
+                  id="AutoJunitTestRerunner.toolbars.sampleCommand">
+            </command>
+         </toolbar>
+      </menuContribution>
+   </extension>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="Auto JUnit Test Rerunner"
+            id="AutoJunitRerunnerViewCategory">
+      </category>
+      <view
+            name="Auto JUnit Test Rerunner"
+            icon="icons/sample.png"
+            category="AutoJunitRerunnerViewCategory"
+            class="com.autojunittestrerunner.AutoJunitRerunnerView"
+            id="AutoJunitTestRerunner.AutoJunitRerunnerView">
+      </view>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="AutoJunitTestRerunner.AutoJunitRerunnerView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+
+</plugin>
